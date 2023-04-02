@@ -5,19 +5,11 @@
 <br />
 <div align="center">
 
-<h3 align="center">Project title</h3>
+<h3 align="center">Hardhat defi</h3>
 
   <p align="center">
-    Project description
+    Small project using AAVE protocol to deposit borrow and repay loan
     <br />
-    <a href="https://github.com/guillaumedebavelaere/hardhat-template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/guillaumedebavelaere/hardhat-template">View Demo</a>
-    ·
-    <a href="https://github.com/guillaumedebavelaere/hardhat-template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/guillaumedebavelaere/hardhat-template/issues">Request Feature</a>
   </p>
 </div>
 
@@ -39,17 +31,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#testing">Testing</a>
-        <ul>
-            <li><a href="#coverage">Coverage</a></li>
-        </ul>
-    </li>
-    <li><a href="#deployment-to-a-testnet-or-mainnet">Deployment to a testnet or mainnet</a>
-    <ul>
-            <li><a href="#estimate-gas-cost-in-usd">Estimate gas cost in USD</a></li>
-            <li><a href="#verify-on-etherscan">Verify on etherscan</a></li>
-        </ul>
-    </li>
     <li><a href="#linting">Linting</a></li>
   </ol>
 </details>
@@ -58,7 +39,7 @@
 
 ## About The Project
 
-This is a project using hardhat, solidity, typescript.
+This is using the AAVE protocol to interact with AAVE protocol using hardhat, solidity, typescript.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,75 +83,18 @@ yarn
 
 ## Usage
 
-```
-yarn hardhat deploy
-```
+This repo requires a mainnet rpc provider.  
+We are going to be forking mainnet, and pretend as if we are interacting with mainnet contracts.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- TESTS -->
-
-## Testing
+All you'll need, is to set a MAINNET_RPC_URL environment variable in a .env file that you create.
 
 ```
-yarn hardhat test
-```
-
-<!-- COVERAGE -->
-
-### Coverage
-
-```
-yarn hardhat coverage
+yarn hardhat run scripts/aaveBorrow.js
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- DEPLOYMENT -->
 
-## Deployment
-
-```
-yarn hardhat deploy --network localhost
-```
-
-## Scripts 
-
-```
-yarn hardhat run scripts/withdraw.ts --network localhost
-```
-
-## Testnet
-1. Setup environment variabltes
-
-You'll want to set your `GOERLI_RPC_URL` and `PRIVATE_KEY` as environment variables. You can add them to a `.env` file. See .env.example as an example file.
-
--   `PRIVATE_KEY`: The private key of your account (like from [metamask](https://metamask.io/)).
--   `GOERLI_RPC_URL`: This is url of the goerli testnet node you're working with. You can get setup with one for free from [Alchemy](https://alchemy.com/?r=30fb9501aa7fc438)
--   
-<!-- ESTIMATION GAS COST-->
-
-### Estimate gas cost in USD
-
-To get a USD estimation of gas cost, you'll need a `COINMARKETCAP_API_KEY` environment variable. You can get one for free from [CoinMarketCap](https://pro.coinmarketcap.com/signup).
-
-Then, uncomment the line `coinmarketcap: COINMARKETCAP_API_KEY,` in `hardhat.config.js` to get the USD estimation. Just note, everytime you run your tests it will use an API call, so it might make sense to have using coinmarketcap disabled until you need it. You can disable it by just commenting the line back out.
-
-<!-- VERIFY -->
-
-### Verify on etherscan
-
-If you deploy to a testnet or mainnet, you can verify it if you get an [API Key](https://etherscan.io/myapikey) from Etherscan and set it as an environemnt variable named `ETHERSCAN_API_KEY`. You can pop it into your `.env` file as seen in the `.env.example`.
-
-In it's current state, if you have your api key set, it will auto verify goerli contracts!
-
-However, you can manual verify with:
-
-```
-yarn hardhat verify --constructor-args arguments.js DEPLOYED_CONTRACT_ADDRESS
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LINTING -->
 
