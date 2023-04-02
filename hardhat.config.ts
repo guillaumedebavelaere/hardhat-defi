@@ -10,16 +10,19 @@ const MUMBAI_RPC_URL = process.env.MUMBAI_RPC_URL || "set-mumbai-rpc-url-in-dote
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "set-your-private-key-in-dotenv"
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "set-your-etherscan-key-in-dotenv"
 const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY || "set-your-polygonscan-key-in-dotenv"
+const MAIN_NET_RPC_URL = process.env.MAIN_NET_RPC_URL || "set-your-main-net-rpc-rl-in-dotenv"
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.18",
+    solidity: {
+        compilers: [{ version: "0.8.18" }, {version: "0.6.12"}],
+    },
     defaultNetwork: "hardhat",
     networks: {
         hardhat: {
             chainId: 31337,
-        },
-        localhost: {
-            chainId: 31337,
+            forking: {
+                url: MAIN_NET_RPC_URL,
+            },
         },
         // goerli: {
         //     url: GOERLI_RPC_URL,

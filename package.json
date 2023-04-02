@@ -1,8 +1,9 @@
 {
-  "name": "hardhat-template",
+  "name": "hardhat-defi",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Guillaume Debavelaere",
   "scripts": {
     "test": "yarn hardhat test",
     "test:staging": "yarn hardhat test --network goerli",
@@ -11,6 +12,7 @@
     "format": "yarn prettier --write ."
   },
   "devDependencies": {
+    "@aave/protocol-v2": "^1.0.1",
     "@ethersproject/abi": "^5.4.7",
     "@ethersproject/providers": "^5.4.7",
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
